@@ -1,0 +1,156 @@
+/* =========================================================
+   01) Design tokens (EDIT THESE FIRST)
+   ========================================================= */
+:root {
+  /* Colors */
+  --bg: #0b0f14;
+  --border: rgba(255,255,255,0.10);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.68);
+  --accent: #a855f7;
+  --accent2: #22d3ee;
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  --text-base: 16px;
+  --line: 1.65;
+
+  /* Layout */
+  --container: 1040px;
+  --radius: 16px;
+}
+
+/* =========================================================
+   02) Global base
+   ========================================================= */
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--line);
+  color: var(--text);
+  background:
+    radial-gradient(900px 600px at 20% 10%, rgba(168,85,247,0.18), transparent 55%),
+    radial-gradient(900px 600px at 85% 20%, rgba(34,211,238,0.14), transparent 55%),
+    var(--bg);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 28px 18px;
+}
+
+/* =========================================================
+   03) Simple nav
+   ========================================================= */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(11,15,20,0.60);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.nav-links a {
+  color: var(--muted);
+  font-weight: 650;
+  margin-left: 14px;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* =========================================================
+   04) Hero + cards
+   ========================================================= */
+.hero { padding: 56px 0 18px; }
+.kicker {
+  color: var(--muted);
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+}
+.hero h1 {
+  margin: 14px 0 10px;
+  font-size: 2.8rem;
+  letter-spacing: -0.03em;
+}
+.hero p {
+  margin: 0;
+  max-width: 70ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.cta-row { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-primary {
+  background: linear-gradient(135deg, rgba(168,85,247,0.95), rgba(34,211,238,0.85));
+  color: rgba(0,0,0,0.88);
+  border: none;
+}
+.btn-ghost { color: var(--text); background: rgba(255,255,255,0.04); }
+
+.section { padding: 26px 0 60px; }
+.section-title {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+.card {
+  grid-column: span 12;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.card h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--text); }
+.card p { margin: 0; color: var(--muted); }
+
+@media (min-width: 760px) {
+  .hero h1 { font-size: 3.2rem; }
+  .card { grid-column: span 6; }
+}
+@media (min-width: 1020px) {
+  .card { grid-column: span 4; }
+}
+
+/* =========================================================
+   05) Force Cayman content pages to match dark theme
+   ========================================================= */
+.page-header { display: none !important; } /* hide Cayman’s default big header */
+.main-content { background: transparent !important; }
+.main-content h1, .main-content h2, .main-content h3 { color: var(--text) !important; }
+.main-content p, .main-content li { color: var(--muted) !important; }
