@@ -8,4 +8,4 @@ title: Portfolio
 This site showcases finance-focused work: Excel models, automation tools, analytics, and written reports.
 
 ## Projects
-Coming soon.
+- [Example Project](/projects/example-project)
