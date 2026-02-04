@@ -1,6 +1,6 @@
 title: Tim — Portfolio
 description: Finance, analytics, Excel models, and automation projects
-theme: minima
+theme: jekyll-theme-cayman
 
 minima:
   skin: auto
